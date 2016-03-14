@@ -1,0 +1,76 @@
+<ion-view view-title="Dashboard">
+    <ion-content ng-class="{expanded:isExpanded}">
+        <div class="card">
+            <div class="item item-divider positive">Total Earnings</div>
+            <div class="item item-text-wrap text-center">
+                <p class="font-large"><span class="balanced"><i class="icon ion-social-usd"></i> 1,111</span></p>
+                <p>$110 Raised by you for <strong>Make A Wish</strong> this week</p>
+            </div>
+		</div>
+        <div class="card">
+            <div class="item item-divider positive">Your settings</div>
+            <ul class="list no-mar-bottom">
+                <li class="item item-toggle item-icon-left" ng-controller="MainAvailStatusCtrl">
+                    <i class="icon ion-android-time"></i>
+                    {{text_status}}
+                    <label class="toggle toggle-balanced">
+                        <input type="checkbox" ng-model="status" ng-change="UpdateStatus()">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+                <li class="item item-toggle item-icon-left" ng-controller="MainVideoStatusCtrl">
+                    <i class="icon ion-ios-videocam"></i>
+                    Video {{text_status}}
+                    <label class="toggle toggle-energized">
+                        <input type="checkbox" ng-model="status" ng-change="UpdateStatus()">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+            </ul>
+        </div>
+		<div class="card">
+            <div class="item item-divider positive">Your rate/minute</div>
+            <div class="row padding-bottom" ng-controller="userRateCtrl">
+                <div class="col no-pad">
+                    <div class="list">
+                        <label class="item item-input">
+                            <i class="icon ion-social-usd placeholder-icon"></i>
+                            <input type="number" name="userrate" step="0.01" max="999.99" min="0.52" placeholder="" ng-init="userrate=15.25" ng-model="userrate" class="input-decorate">
+                        </label>
+                    </div>
+                </div>
+                <div class="col col-50 no-pad text-center">
+                    <button class="button button-clear button-positive" ng-click="inputChanged()">Save</button>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="item item-divider positive">Your chosen charity</div>
+            <div class="list padding-bottom">
+                <label class="item item-input item-select">
+                    <div class="input-label">Charity</div>
+                    <select>
+                        <option>Night's Watch Council</option>
+                        <option>The Panda Foundation</option>
+                        <option>Save the Trees</option>
+                        <option>The Meereen Foundation</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+        <div class="card">
+            <div class="item item-divider positive">Reviews</div>
+            <div class="item item-text-wrap text-center">
+                <p class="font-large"><span class="calm"><i class="icon ion-thumbsup"></i> 9 / 10</span></p>
+                <p>Your total rating from recent reviews </p>
+            </div>
+        </div>
+
+        <button ui-sref="app.login" class="button button-assertive ink">Login</button>
+        <button ui-sref="app.profile({profileid: 1})" class="button button-assertive ink">Other Profiles</button>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,48 @@
+<ion-view view-title="Dashboard">
+    <ion-content ng-class="{expanded:isExpanded}">
+        <div class="card">
+            <div class="item item-divider">
+                Donations
+            </div>
+            <div class="item item-text-wrap text-center">
+                <div class="font-large balanced"><i class="icon ion-social-usd"></i> 1,111</div>
+                <p>Raised by you for <strong>Make A Wish</strong> this week</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="item item-divider">
+                Reviews
+            </div>
+            <div class="item item-text-wrap text-center">
+                <h1 class="calm"><i class="icon ion-thumbsup"></i> 9 / 10</h1>
+                <p>Your total rating from recent reviews </p>
+            </div>
+        </div>
+        <div class="list card">
+            <div class="item item-text-wrap">
+                <ul class="list">
+                    <li class="item item-toggle item-icon-left" ng-controller="MainVideoStatusCtrl">
+                        <i class="icon ion-ios-videocam"></i>
+                        Video {{text_status}}
+                        <label class="toggle toggle-energized">
+                            <input type="checkbox" ng-model="status" ng-change="UpdateStatus()">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                        </label>
+                    </li>
+                    <li class="item item-toggle item-icon-left" ng-controller="MainAvailStatusCtrl">
+                        <i class="icon ion-android-time"></i>
+                        {{text_status}}
+                        <label class="toggle toggle-balanced">
+                            <input type="checkbox" ng-model="status" ng-change="UpdateStatus()">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

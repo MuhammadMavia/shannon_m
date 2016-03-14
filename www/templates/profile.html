@@ -1,0 +1,64 @@
+<ion-view view-title="{{user.name}}">
+    <ion-content ng-class="{expanded:$scope.isExpanded}" class="has-tabs">
+        <div class="hero slide-up" style="background-image: url('img/profile-bg.jpg');">
+            <div class="content">
+                <div class="avatar" style="background-image: url('{{user.avatar}}');"></div>
+                <h3><a class="light">{{user.name}}</a></h3>
+                <h4>{{user.profession}}</h4>
+            </div>
+        </div>
+        <div class="tabs tabs-dark app-tabs-dark tabs-icon-top static">
+            <a ui-sref="app.activity" class="tab-item">
+                <i class="icon ion-arrow-graph-up-right"></i> Trending
+            </a>
+            <a ui-sref="app.friends" class="tab-item">
+                <i class="icon ion-heart"></i> Following
+            </a>
+            <a ui-sref="app.market_profile" class="tab-item">
+                <i class="icon ion-android-people"></i> Market
+            </a>
+        </div>
+        <div class="content double-padding">
+            <h4 class="positive">User Info</h4>
+            <p><strong>This operator's rate per minute:</strong> <span class="energized">$15.85</span></p>
+        </div>
+        <div class="content double-padding">
+            <h4 class="positive">Charity Donations</h4>
+            <p><img class="circle img-sm left" src="img/material2.jpg">{{user.name}} donates to <strong>Make A Wish Foundation</strong></p>
+            <div class="clearfix"></div>
+            <h6 class="balanced">${{user.moneyraised}} Raised for charity, out of $2000 goal.</h6>
+            <div class="progress">
+                <div class="determinate" style="width: 29%"></div>
+            </div>
+        </div>
+        <div class="content double-padding">
+            <h4 class="positive">About {{user.name}}</h4>
+            <div class="video-container">
+                <iframe src="{{user.videourl}}" allowfullscreen="" frameborder="0" height="720" width="1280"></iframe>
+            </div>
+            <p class="padding-top">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec mi et purus vulputate rhoncus venenatis at arcu. Aliquam luctus justo odio, a tincidunt lacus faucibus eget. Sed dictum molestie placerat. Suspendisse vehicula consequat accumsan. Etiam magna nisl, lacinia nec tempus eget, faucibus vel nisl. Curabitur vel dictum eros. In ullamcorper justo nec libero vulputate aliquet. Vivamus ut posuere mauris, at consequat leo. Duis egestas rutrum tempus. Etiam laoreet orci non enim facilisis, sed interdum risus congue. Vestibulum lacinia consequat tortor, in ullamcorper enim suscipit quis. Phasellus et nulla purus. Duis ac pellentesque massa. In fringilla vitae risus tincidunt facilisis. Pellentesque nec sollicitudin nibh.
+                In hac habitasse platea dictumst. Mauris nec ante ipsum. Quisque porttitor, sapien vehicula malesuada gravida, felis tellus suscipit metus, vitae bibendum metus velit in ligula. Nam et neque euismod risus finibus ornare in mollis nulla. Aenean dapibus velit nulla, vel aliquet odio fermentum in. Nullam velit magna, vestibulum eget massa eu, sodales iaculis mauris. Curabitur ornare nulla et blandit varius. Nunc convallis, sem ac porta dictum, lorem risus rutrum magna, eu fringilla ipsum massa at nisi.
+            </p>
+        </div>
+        <div class="content double-padding">
+            <h4 class="positive">Suggested Operators</h4>
+            <div class="list animate-fade-slide-in-right">
+                <a ng-repeat="userInf in users | filter:{ id:'!'+user.id}" ui-sref="app.profile({profileid: {{userInf.id}}})" class="item item-avatar item-icon-right">
+                    <img src="{{userInf.avatar}}">
+                    <h2>{{userInf.name}}</h2>
+                    <p>{{userInf.profession}}</p>
+                    <i class="icon ion-chatbubble muted"></i>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+    <div class="tabs tabs-dark app-tabs-dark tabs-icon-top">
+        <a ui-sref="app.dashboard" class="tab-item">
+            <i class="icon ion-ios-telephone calm"></i> Voice Call
+        </a>
+        <a ui-sref="app.dashboard" class="tab-item">
+            <i class="icon ion-ios-videocam balanced"></i> Video Call
+        </a>
+    </div>
+</ion-view>

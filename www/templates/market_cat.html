@@ -1,0 +1,40 @@
+<ion-view view-title="{{currentCat}} Categories">
+    <ion-content ng-class="{expanded:isExpanded}" class="">
+        <div class="list half">
+            <div ng-repeat="category in categories | filter: { cat: currentCat }" ng-if="$index % 2 == 0" ui-sref="app.market_cat({catref: currentCat})" class="card card-gallery item item-text-wrap">
+                <div class="ink dark-bg">
+                    <h2>{{category.name}}</h2>
+                    <img class="full-image" src="{{category.img}}">
+                </div>
+                <div class="item tabs tabs-secondary tabs-icon-left">
+                    <a class="tab-item stable-bg assertive">
+                        <i class="icon ion-heart"></i>
+                        4
+                    </a>
+                    <a class="tab-item stable-bg positive-900">
+                        <i class="icon ion-chatbubbles"></i>
+                        28
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="list half">
+            <div ng-repeat="category in categories | filter: { cat: currentCat }" ng-if="$index % 2 > 0" ui-sref="app.market_cat({catref: currentCat})" class="card card-gallery item item-text-wrap">
+                <div class="ink dark-bg">
+                    <h2>{{category.name}}</h2>
+                    <img class="full-image" src="{{category.img}}">
+                </div>
+                <div class="item tabs tabs-secondary tabs-icon-left">
+                    <a class="tab-item stable-bg assertive">
+                        <i class="icon ion-heart"></i>
+                        4
+                    </a>
+                    <a class="tab-item stable-bg positive-900">
+                        <i class="icon ion-chatbubbles"></i>
+                        28
+                    </a>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
